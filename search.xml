@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>数据链路层</title>
+      <link href="/2022/11/24/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
+      <url>/2022/11/24/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3.png" alt="数据链路层"><br>详细思维导图见<a href="https://kdocs.cn/l/cfBHZy8bqWls">https://kdocs.cn/l/cfBHZy8bqWls</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cpp面向对象</title>
+      <link href="/2022/11/24/Cpp%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"/>
+      <url>/2022/11/24/Cpp%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> Cpp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cpp </tag>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计网物理层</title>
+      <link href="/2022/11/19/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/"/>
+      <url>/2022/11/19/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计算机网络物理层"><a href="#计算机网络物理层" class="headerlink" title="计算机网络物理层"></a>计算机网络物理层</h1><p><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2.png" alt="计网物理层"><br>详细思维导图见<a href="https://kdocs.cn/l/cdEZrFdWdHtj">https://kdocs.cn/l/cdEZrFdWdHtj</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cpp-STL</title>
+      <link href="/2022/11/13/Cpp-STL/"/>
+      <url>/2022/11/13/Cpp-STL/</url>
+      
+        <content type="html"><![CDATA[<h1 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h1><h2 id="什么是STL？"><a href="#什么是STL？" class="headerlink" title="什么是STL？"></a>什么是STL？</h2><p>C++ STL（标准模板库）是一套功能强大的 C++ 模板类，提供了通用的模板类和函数，这些模板类和函数可以实现多种流行和常用的算法和数据结构，如向量、链表、队列、栈。</p><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>向量：与数组十分相似，唯一不同的是，向量在需要扩展大小的时候，会自动处理它自己的存储需求，相当于一个自动的动态数组</p><h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;vector&gt;</span><br></pre></td></tr></table></figure><h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><table><thead><tr><th>函数</th><th>作用</th></tr></thead><tbody><tr><td>vector.push_back(T)</td><td></td></tr></tbody></table><h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>队列：先进先出的一种结构，就类似于生活中排队打饭，排在排头的人先打到饭菜离开</p><h3 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;queue&gt;</span><br></pre></td></tr></table></figure><h3 id="基本方法-1"><a href="#基本方法-1" class="headerlink" title="基本方法"></a>基本方法</h3><table><thead><tr><th>函数</th><th>作用</th></tr></thead><tbody><tr><td>queue.pop()</td><td>弹出队首的元素</td></tr><tr><td>queue.push(T)</td><td>队尾加入一个元素</td></tr><tr><td>queue.front()</td><td>队首元素</td></tr><tr><td>queue.empty()</td><td>队列是否为空</td></tr><tr><td>queue.size()</td><td>队列的大小</td></tr><tr><td>queue.back()</td><td>队尾元素</td></tr></tbody></table><h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>一行内输入一串整数，以0结束，以空格间隔。</p><h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>按照输入顺序输出这一串数字，以空格间隔</p><h4 id="样例"><a href="#样例" class="headerlink" title="样例"></a>样例</h4><h5 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12 26 3 10 20 0</span><br></pre></td></tr></table></figure><h5 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12 26 3 10 20</span><br></pre></td></tr></table></figure><h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//先进先出，使用队列</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span><span class="comment">//头文件</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> cnt[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">queue&lt;<span class="type">int</span>&gt; q;<span class="comment">//初始化队列 </span></span><br><span class="line"><span class="keyword">while</span>(cin &gt;&gt; cnt[i])&#123;</span><br><span class="line"><span class="keyword">if</span>(cnt[i] == <span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">q.<span class="built_in">push</span>(cnt[i]);<span class="comment">//队尾加入元素 </span></span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(!q.<span class="built_in">empty</span>())&#123;<span class="comment">//判断队列是否为空</span></span><br><span class="line">cout &lt;&lt; q.<span class="built_in">front</span>() &lt;&lt; <span class="string">&quot; &quot;</span>;<span class="comment">//输出队首元素</span></span><br><span class="line">q.<span class="built_in">pop</span>();<span class="comment">//弹出队首元素 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输入</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12 26 3 10 20 0</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12 26 3 10 20</span><br></pre></td></tr></table></figure><h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><p>双队列：不同于queue，双队列的队首以及队尾均可对元素进行增删改查</p><h3 id="头文件-2"><a href="#头文件-2" class="headerlink" title="头文件"></a>头文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;deque&gt;</span><br></pre></td></tr></table></figure><h3 id="基本方法-2"><a href="#基本方法-2" class="headerlink" title="基本方法"></a>基本方法</h3><table><thead><tr><th>基本操作</th><th>函数</th><th>作用</th></tr></thead><tbody><tr><td>插入操作</td><td>deque.push_front(T)</td><td>队首插入元素</td></tr><tr><td></td><td>deque.push_back(T)</td><td>队尾插入元素</td></tr><tr><td></td><td>deque.insert(pos, val)</td><td>指定位置pos，插入元素val</td></tr><tr><td></td><td>deque.insert(pos, n, val)</td><td>在指定位置pos插入n个元素val</td></tr><tr><td></td><td>deque.insert(pos, deque2.begin(), deque2.end())</td><td>在pos位置插入另一个队列（左闭右开）</td></tr><tr><td>删除操作</td><td>deque.pop_front()</td><td>弹出队首元素</td></tr><tr><td></td><td>deque.pop_back()</td><td>弹出队尾元素</td></tr><tr><td></td><td>deque.clear()</td><td>清空队列所有元素</td></tr><tr><td></td><td>deque.erase(pos)</td><td>删除pos对应位置数据</td></tr><tr><td></td><td>deque.erase(begin, end)</td><td>删除该区间上的元素（左闭右开）</td></tr><tr><td>存取操作</td><td>deque.back()</td><td>访问队尾元素</td></tr><tr><td></td><td>deque.front()</td><td>访问队首元素</td></tr><tr><td></td><td><code>deque.at</code>(index)</td><td>访问指定下标的元素</td></tr><tr><td></td><td>deque[<code>i</code>]</td><td>访问指定下标元素</td></tr><tr><td>容量操作</td><td>deque.empty()</td><td>判断是否为空</td></tr><tr><td></td><td>deque.size()</td><td>双队列中元素的个数</td></tr><tr><td></td><td>deque.resize(num)</td><td>重新指定双队列的大小，不足以默认值填充，超过删除超过部分</td></tr><tr><td></td><td>deque.resize(num, val)</td><td>重新指定双队列的大小，不足以val填充，超过删除超过部分</td></tr><tr><td>排序操作</td><td>sort(itr.begin(), itr.end())</td><td>对其中元素进行排序</td></tr></tbody></table><h3 id="双向队列"><a href="#双向队列" class="headerlink" title="双向队列"></a>双向队列</h3><h4 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h4><p>一行输入一个数字N用于表示数组大小，输入N个数字</p><h4 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h4><p>以双向列表的形式通过三种不同方式输出数组中所有元素</p><h4 id="样例-1"><a href="#样例-1" class="headerlink" title="样例"></a>样例</h4><h5 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">10 6 260 1000 36 0</span><br></pre></td></tr></table></figure><h5 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10 6 260 1000 36 0</span><br><span class="line">10 6 260 1000 36 0</span><br><span class="line">10 6 260 1000 36 0</span><br></pre></td></tr></table></figure><h5 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;deque&gt;</span><span class="comment">//头文件 </span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">deque&lt;<span class="type">int</span>&gt; d;<span class="comment">//初始化双向队列 </span></span><br><span class="line"><span class="type">int</span> num;</span><br><span class="line">cin &gt;&gt; num;</span><br><span class="line"><span class="type">int</span> *n = <span class="keyword">new</span> <span class="type">int</span>[num];<span class="comment">//new 一块内存空间申请动态数组 </span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">&#123;</span><br><span class="line">cin &gt;&gt; n[i];</span><br><span class="line">d.<span class="built_in">push_back</span>(n[i]);<span class="comment">//双队列结尾插入元素 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; d.<span class="built_in">size</span>(); i++)<span class="comment">//获取双向队列中元素个数 </span></span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; d[i] &lt;&lt; <span class="string">&quot; &quot;</span>;<span class="comment">//以下标方式访问元素 </span></span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; d.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; d.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot; &quot;</span>;<span class="comment">//以at方式访问元素 </span></span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="keyword">for</span>(deque&lt;<span class="type">int</span>&gt;::iterator it = d.<span class="built_in">begin</span>(); it != d.<span class="built_in">end</span>(); it++)<span class="comment">//迭代器 </span></span><br><span class="line">&#123;</span><br><span class="line">cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;<span class="comment">//以迭代器方式访问元素 </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输入</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">6</span><br><span class="line">10 6 260 1000 36 0</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10 6 260 1000 36 0</span><br><span class="line">10 6 260 1000 36 0</span><br><span class="line">10 6 260 1000 36 0</span><br></pre></td></tr></table></figure><h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><p>栈：先进后出的一种结构，现实生活中类似于从下至上叠加椅子，将椅子从上至下取下的过程</p><h3 id="头文件-3"><a href="#头文件-3" class="headerlink" title="头文件"></a>头文件</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stack&gt;</span><br></pre></td></tr></table></figure><h3 id="基本方法-3"><a href="#基本方法-3" class="headerlink" title="基本方法"></a>基本方法</h3><table><thead><tr><th>函数</th><th>作用</th></tr></thead><tbody><tr><td>stack.pop()</td><td>弹栈</td></tr><tr><td>stack.push(T)</td><td>压栈</td></tr><tr><td>stack.top()</td><td>栈顶元素</td></tr><tr><td>stack.empty()</td><td>栈是否为空</td></tr><tr><td>stack.size()</td><td>栈的大小</td></tr></tbody></table><h3 id="数字游戏"><a href="#数字游戏" class="headerlink" title="数字游戏"></a>数字游戏</h3><h4 id="输入格式-2"><a href="#输入格式-2" class="headerlink" title="输入格式"></a>输入格式</h4><p>一行内输入一串整数，以 0 结束，以空格间隔。</p><h4 id="输出格式-2"><a href="#输出格式-2" class="headerlink" title="输出格式"></a>输出格式</h4><p>一行内倒着输出这一串整数，以空格间隔。</p><h4 id="样例-2"><a href="#样例-2" class="headerlink" title="样例"></a>样例</h4><h5 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入"></a>样例输入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 65 23 5 34 1 30 0</span><br></pre></td></tr></table></figure><h5 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出"></a>样例输出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">30 1 34 5 23 65 3</span><br></pre></td></tr></table></figure><h5 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//先进后出，经典栈结构</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="type">int</span> cnt[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">stack&lt;<span class="type">int</span>&gt; s;<span class="comment">//定义栈</span></span><br><span class="line"><span class="keyword">while</span>(cin &gt;&gt; cnt[i])&#123;</span><br><span class="line"><span class="keyword">if</span>(cnt[i] == <span class="number">0</span>)&#123;</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">s.<span class="built_in">push</span>(cnt[i]);<span class="comment">//压栈</span></span><br><span class="line">i++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(!s.<span class="built_in">empty</span>())&#123;<span class="comment">//判断栈是否为空</span></span><br><span class="line">cout &lt;&lt; s.<span class="built_in">top</span>() &lt;&lt; <span class="string">&quot; &quot;</span>;<span class="comment">//输出栈顶元素</span></span><br><span class="line">s.<span class="built_in">pop</span>();<span class="comment">//弹栈</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输入</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">3 65 23 5 34 1 30 0</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">30 1 34 5 23 65 3</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Cpp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cpp </tag>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Cpp基础</title>
+      <link href="/2022/11/10/Cpp%E5%9F%BA%E7%A1%80/"/>
+      <url>/2022/11/10/Cpp%E5%9F%BA%E7%A1%80/</url>
+      
+        <content type="html"><![CDATA[<h1 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h1><h2 id="I-x2F-O头文件"><a href="#I-x2F-O头文件" class="headerlink" title="I&#x2F;O头文件"></a>I&#x2F;O头文件</h2><table><thead><tr><th align="center">头文件</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center"><code>&lt;iostream&gt;</code></td><td align="center">包含标准输入流cin、标准输出流cout、非缓冲标准错误流cerr和缓冲标准错误流clog。</td></tr><tr><td align="center"><code>&lt;iomanip&gt;</code></td><td align="center">通过所谓的参数化的流操纵器（比如 setw 和 setprecision），来声明对执行标准化 I&#x2F;O 有用的服务</td></tr><tr><td align="center"><code>&lt;fstream&gt;</code></td><td align="center">为用户控制的文件处理声明服务</td></tr></tbody></table><p>注：该表格取自菜鸟教程</p><p>下面来看一个标准输入输出的例子（平时也会大量使用）</p><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">    cin &gt;&gt; num;<span class="comment">//标准输入num</span></span><br><span class="line">    cout &lt;&lt; num &lt;&lt; endl;<span class="comment">//标准输出num</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>输入</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br></pre></td></tr></table></figure><p>输出</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">10</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Cpp </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cpp </tag>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计网概述</title>
+      <link href="/2022/11/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/"/>
+      <url>/2022/11/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="计算机网络概述"><a href="#计算机网络概述" class="headerlink" title="计算机网络概述"></a>计算机网络概述</h1><p>ps:计网的知识点实在是太多太细了，写成markdown语法估计得写破防，本思维导图参考自6f老师讲课以及学长笔记。<br><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1.png" alt="计算机网络概述"><br>详细思维导图见<a href="https://kdocs.cn/l/ccCKYkCIm50j">https://kdocs.cn/l/ccCKYkCIm50j</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>微信小程序</title>
+      <link href="/2022/11/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <url>/2022/11/03/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 小程序 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 微信小程序 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>前端笔记</title>
+      <link href="/2022/10/22/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/"/>
+      <url>/2022/10/22/%E5%89%8D%E7%AB%AF%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="什么是HTML语言"><a href="#什么是HTML语言" class="headerlink" title="什么是HTML语言"></a>什么是HTML语言</h3><p> 超文本标记语言（英语：HyperText Markup Language，简称：HTML）是一种用于创建网页的标准标记语言<br> HTML语言不是一种编程语言，而是一种标签语言（类似于markdown语法）<br> 标记语言是一套标记标签</p><h3 id="HTML标签"><a href="#HTML标签" class="headerlink" title="HTML标签"></a>HTML标签</h3><p> 通常成对出现，分为开始标签和结束标签，当然也有单独出现的标签比如<code>&lt;br /&gt;</code></p><h3 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a>标题标签</h3><p> HTML 标题（Heading）是通过<code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code> 标签来定义的<br> 一共有六级标题，文字加粗，依次大小减小</p><h3 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a>段落标签</h3><p> HTML 段落是通过标签 <code>&lt;p&gt;</code> 来定义的<br> 段与段之间有较大的间距</p><h3 id="换行标签"><a href="#换行标签" class="headerlink" title="换行标签"></a>换行标签</h3><p>HTML 换行 (Break) 是通过标签<code>&lt;br /&gt;</code> 来定义的<br>单标签，即使 <code>&lt;br&gt;</code> 在所有浏览器中都是有效的，但使用 <code>&lt;br /&gt;</code> 其实是更长远的保障</p><h3 id="文本格式化标签"><a href="#文本格式化标签" class="headerlink" title="文本格式化标签"></a>文本格式化标签</h3><p>突出重要性，粗体、斜体、下划线等效果</p><table><thead><tr><th align="center">语义</th><th align="center">标签</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">加粗</td><td align="center"><code>&lt;strong&gt;&lt;/strong&gt;</code> 或者 <code>&lt;b&gt;&lt;/b&gt;</code></td><td align="center">推荐使用<code>&lt;strong&gt;</code></td></tr><tr><td align="center">倾斜</td><td align="center"><code>&lt;em&gt;&lt;/em&gt;</code> 或者 <code>&lt;i&gt;&lt;/i&gt;</code></td><td align="center">推荐使用<code>&lt;em&gt;</code></td></tr><tr><td align="center">删除线</td><td align="center"><code>&lt;del&gt;&lt;/del&gt;</code> 或者 <code>&lt;s&gt;&lt;/s&gt;</code></td><td align="center">推荐使用<code>&lt;del&gt;</code></td></tr><tr><td align="center">下划线</td><td align="center"><code>&lt;ins&gt;&lt;/ins&gt;</code> 或者 <code>&lt;u&gt;&lt;/u&gt;</code></td><td align="center">推荐使用<code>&lt;ins&gt;</code></td></tr></tbody></table><h3 id="lt-div-gt-和-lt-span-gt-标签"><a href="#lt-div-gt-和-lt-span-gt-标签" class="headerlink" title="&lt;div&gt; 和 &lt;span&gt; 标签"></a><code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code> 标签</h3><p><code>&lt;div&gt;</code> 和 <code>&lt;span&gt;</code> 都没有语义，用来装内容的盒子,可以用于网页的布局<br><code>&lt;div&gt;</code>布局，一行只能放一个，大盒子<br><code>&lt;span&gt;</code>布局，一行可以放多个，小盒子</p><h3 id="图像标签"><a href="#图像标签" class="headerlink" title="图像标签"></a>图像标签</h3><p>HTML 图像 (image) 是通过标签<code>&lt;img&gt;</code> 来定义的</p><table><thead><tr><th align="center">属性</th><th align="center">属性值</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">src</td><td align="center">图片路径</td><td align="center">必须属性</td></tr><tr><td align="center">alt</td><td align="center">文本</td><td align="center">图像不能正常显示时，替换的文本</td></tr><tr><td align="center">title</td><td align="center">文本</td><td align="center">鼠标置于图像上显示出的文字，提示的文本</td></tr><tr><td align="center">width</td><td align="center">像素</td><td align="center">宽度</td></tr><tr><td align="center">height</td><td align="center">像素</td><td align="center">高度</td></tr><tr><td align="center">border</td><td align="center">像素</td><td align="center">边框粗细</td></tr><tr><td align="center">宽度和高度可以只设定一个，等比例缩放</td><td align="center"></td><td align="center"></td></tr><tr><td align="center">属性之间没有先后顺序，但要以空格间隔开来，采取键值对的形式，属性&#x3D;”属性值”</td><td align="center"></td><td align="center"></td></tr></tbody></table><h3 id="超链接标签"><a href="#超链接标签" class="headerlink" title="超链接标签"></a>超链接标签</h3><p><code>&lt;a&gt;</code>标签</p><table><thead><tr><th align="center">属性</th><th align="center">说明</th></tr></thead><tbody><tr><td align="center">href</td><td align="center">用于指定链接目标的url（必须属性）</td></tr><tr><td align="center">target</td><td align="center">用于指定链接页面的打开方式，其中_self为默认值，在原窗口打开链接，_blank为在新窗口中打开方式</td></tr></tbody></table>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTML </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> HTML </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
