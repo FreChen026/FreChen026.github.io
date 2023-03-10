@@ -4,11 +4,36 @@
   
     
     <entry>
+      <title>折腾日志</title>
+      <link href="/2023/03/09/%E6%8A%98%E8%85%BE%E6%97%A5%E5%BF%97/"/>
+      <url>/2023/03/09/%E6%8A%98%E8%85%BE%E6%97%A5%E5%BF%97/</url>
+      
+        <content type="html"><![CDATA[<div class="timeline blue"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>折腾日志</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>2023-03-09</p></div></div><div class='timeline-item-content'><p>记录1037u小主机的折腾之旅</p></div></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> 垃圾回收站 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 硬件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据链路层</title>
       <link href="/2022/11/24/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/"/>
       <url>/2022/11/24/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/</url>
       
-        <content type="html"><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3.png" alt="数据链路层"><br>详细思维导图见<a href="https://kdocs.cn/l/cfBHZy8bqWls">https://kdocs.cn/l/cfBHZy8bqWls</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h1><p><img src="https://s2.loli.net/2023/03/10/AG82roydpSb1UPZ.png" alt="计算机网络3.png"></p><!-- ![数据链路层](https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C3.png) --><p>详细思维导图见<a href="https://kdocs.cn/l/cfBHZy8bqWls">https://kdocs.cn/l/cfBHZy8bqWls</a></p>]]></content>
       
       
       <categories>
@@ -60,7 +85,7 @@
       <link href="/2022/11/19/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/"/>
       <url>/2022/11/19/%E8%AE%A1%E7%BD%91%E7%89%A9%E7%90%86%E5%B1%82/</url>
       
-        <content type="html"><![CDATA[<h1 id="计算机网络物理层"><a href="#计算机网络物理层" class="headerlink" title="计算机网络物理层"></a>计算机网络物理层</h1><p><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2.png" alt="计网物理层"><br>详细思维导图见<a href="https://kdocs.cn/l/cdEZrFdWdHtj">https://kdocs.cn/l/cdEZrFdWdHtj</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="计算机网络物理层"><a href="#计算机网络物理层" class="headerlink" title="计算机网络物理层"></a>计算机网络物理层</h1><p><img src="https://s2.loli.net/2023/03/10/aTWJscEbKfv5jry.png" alt="计网物理层"></p><!-- ![计网物理层](https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C2.png) --><p>详细思维导图见<a href="https://kdocs.cn/l/cdEZrFdWdHtj">https://kdocs.cn/l/cdEZrFdWdHtj</a></p>]]></content>
       
       
       <categories>
@@ -139,7 +164,7 @@
       <link href="/2022/11/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/"/>
       <url>/2022/11/05/%E8%AE%A1%E7%BD%91%E6%A6%82%E8%BF%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="计算机网络概述"><a href="#计算机网络概述" class="headerlink" title="计算机网络概述"></a>计算机网络概述</h1><p>ps:计网的知识点实在是太多太细了，写成markdown语法估计得写破防，本思维导图参考自6f老师讲课以及学长笔记。<br><img src="https://git.nju.edu.cn/211250026/picture/-/raw/main/blog_picture/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C1.png" alt="计算机网络概述"><br>详细思维导图见<a href="https://kdocs.cn/l/ccCKYkCIm50j">https://kdocs.cn/l/ccCKYkCIm50j</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="计算机网络概述"><a href="#计算机网络概述" class="headerlink" title="计算机网络概述"></a>计算机网络概述</h1><p>ps:计网的知识点实在是太多太细了，写成markdown语法估计得写破防，本思维导图参考自6f老师讲课以及学长笔记。<br><img src="https://s2.loli.net/2023/03/10/jpcYFGzQeVqnmBU.png" alt="计算机网络概述.png"><br>详细思维导图见<a href="https://kdocs.cn/l/ccCKYkCIm50j">https://kdocs.cn/l/ccCKYkCIm50j</a></p>]]></content>
       
       
       <categories>
