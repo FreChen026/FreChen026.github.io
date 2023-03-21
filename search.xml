@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>数据库</title>
+      <link href="/2023/03/21/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+      <url>/2023/03/21/%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><p>操作系统：Debian11 </p><p>数据库工具：MariaDB<br>Ver 9.1 Distrib 10.5.18-MariaDB, for debian-linux-gnu on x86_64</p><hr><p><strong>每条指令均以,作为结束标志</strong></p><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">xxx@debian:~/桌面$ sudo mysql -u root -pa</span><br><span class="line">[sudo] xxx 的密码：</span><br><span class="line">Enter password:</span><br></pre></td></tr></table></figure><p>成功登陆出现以下提示:</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 31</span><br><span class="line">Server version: 10.5.18-MariaDB-0+deb11u1 Debian 11</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br></pre></td></tr></table></figure><p><strong>若是出现以下报错</strong></p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ERROR 2002 (HY000): Can&#x27;t connect to local MySQL server through socket &#x27;/run/mysqld/mysqld.sock&#x27; (2)</span><br></pre></td></tr></table></figure><p>考虑是不是数据库未开启，查看状态</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo systemctl status mariadb</span></span><br></pre></td></tr></table></figure><p>若是发现</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Status: &quot;MariaDB server is down&quot;</span><br></pre></td></tr></table></figure><p>表明数据库服务端已关闭，使用以下指令开启</p><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo systemctl start mariadb</span><br></pre></td></tr></table></figure><h2 id="数据库创建"><a href="#数据库创建" class="headerlink" title="数据库创建"></a>数据库创建</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE DATABASE xxx;</span><br></pre></td></tr></table></figure><p>实例：创建employees数据库</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE employees;</span><br><span class="line">Query OK, 1 row affected (0.000 sec)</span><br></pre></td></tr></table></figure><p>看看现在数据库有无变化</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| employees          |</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">+--------------------+</span><br><span class="line">4 rows in set (0.001 sec)</span><br></pre></td></tr></table></figure><p>成功创建employees数据库</p><h4 id="反复添加会如何"><a href="#反复添加会如何" class="headerlink" title="反复添加会如何"></a>反复添加会如何</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE employees;</span><br><span class="line">ERROR 1007 (HY000): Can&#x27;t create database &#x27;employees&#x27;; database exists</span><br></pre></td></tr></table></figure><p>ERROR,该数据库已存在</p><h2 id="数据库删除"><a href="#数据库删除" class="headerlink" title="数据库删除"></a>数据库删除</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">DROP DATABASE xxx;</span><br></pre></td></tr></table></figure><p>实例：删除employees数据库</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; DROP DATABASE employees;</span><br><span class="line">Query OK, 0 rows affected (0.001 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">+--------------------+</span><br><span class="line">3 rows in set (0.001 sec)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="数据库选择"><a href="#数据库选择" class="headerlink" title="数据库选择"></a>数据库选择</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use xxx;</span><br></pre></td></tr></table></figure><p>实例：选择employees数据库</p><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MariaDB [(none)]&gt; CREATE DATABASE employees;</span><br><span class="line">Query OK, 1 row affected (0.001 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; use employees;</span><br><span class="line">Database changed</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数据管理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> MySQL </tag>
+            
+            <tag> MariaDB </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git</title>
       <link href="/2023/03/16/Git/"/>
       <url>/2023/03/16/Git/</url>
