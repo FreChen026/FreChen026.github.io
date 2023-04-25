@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>FAT12镜像查看 | FreChen026</title><meta name="keywords" content="文件系统,OS"><meta name="author" content="FreChen026"><meta name="copyright" content="FreChen026"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="前言：为了搞定OS的Lab2实验——实现一个FAT12镜像查看工具，还是耗费了较长的时间、精力的，故以此文记录下收获   准备工作工具：为了方便较为直观呈现效果，采用vscode + Hex Editor插件 镜像文件：a.img 1.44MB 镜像结构： FAT12文件系统FATFAT（File Allocation Table）文件配置表。用于记录文件所在位置的表格。 在DOS v1.0时代就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="FAT12镜像查看">
+<meta property="og:url" content="http://example.com/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/index.html">
+<meta property="og:site_name" content="FreChen026">
+<meta property="og:description" content="前言：为了搞定OS的Lab2实验——实现一个FAT12镜像查看工具，还是耗费了较长的时间、精力的，故以此文记录下收获   准备工作工具：为了方便较为直观呈现效果，采用vscode + Hex Editor插件 镜像文件：a.img 1.44MB 镜像结构： FAT12文件系统FATFAT（File Allocation Table）文件配置表。用于记录文件所在位置的表格。 在DOS v1.0时代就">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/ZNTjfJuSEiIO3bg.jpg">
+<meta property="article:published_time" content="2023-04-25T15:38:15.000Z">
+<meta property="article:modified_time" content="2023-04-25T15:49:07.009Z">
+<meta property="article:author" content="FreChen026">
+<meta property="article:tag" content="文件系统">
+<meta property="article:tag" content="OS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/25/ZNTjfJuSEiIO3bg.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2023/03/10/eRLkCVOgloy9Y43.jpg"><link rel="canonical" href="http://example.com/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'FAT12镜像查看',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-25 23:49:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/03/10/yFU1XmJBxQcCoz6.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera"></i><span> 相册</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2023/04/25/ZNTjfJuSEiIO3bg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">FreChen026</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/photos/"><i class="fa-fw fas fa-camera"></i><span> 相册</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 视频</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">FAT12镜像查看</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-04-25T15:38:15.000Z" title="发表于 2023-04-25 23:38:15">2023-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-25T15:49:07.009Z" title="更新于 2023-04-25 23:49:07">2023-04-25</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>5分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="FAT12镜像查看"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div class="note info simple"><p>前言：为了搞定OS的Lab2实验——实现一个FAT12镜像查看工具，还是耗费了较长的时间、精力的，故以此文记录下收获</p>
+</div>
+
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>工具：为了方便较为直观呈现效果，采用<code>vscode + Hex Editor插件</code></p>
+<p>镜像文件：<code>a.img 1.44MB</code></p>
+<p>镜像结构：<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/25/Wz7t6yrQEhn2CXT.png" alt="ls.png"></p>
+<h1 id="FAT12文件系统"><a href="#FAT12文件系统" class="headerlink" title="FAT12文件系统"></a>FAT12文件系统</h1><h2 id="FAT"><a href="#FAT" class="headerlink" title="FAT"></a>FAT</h2><p>FAT（File Allocation Table）文件配置表。用于记录文件所在位置的表格。</p>
+<p>在DOS v1.0时代就已引入，是最基本的文件系统之一。</p>
+<p>FAT家族包括：FAT12、FAT16、FAT32、ExFAT、VFAT</p>
+<h2 id="FAT12"><a href="#FAT12" class="headerlink" title="FAT12"></a>FAT12</h2><p>12位地址，故最大容量为16MB，软盘文件系统使用。</p>
+<p>标准以FAT12组织的软盘包括以下设定：</p>
+<ul>
+<li>两磁头</li>
+<li>每磁头80个磁道</li>
+<li>每磁道18扇区</li>
+<li>每扇区512字节</li>
+</ul>
+<p>故FAT12的标准软盘大小为<code>2 * 80 * 18 * 512 = 1.44MB</code>，故一个标准<code>1.44MB</code>的FAT12软盘共有<code>2 * 80 * 18 = 2880</code>扇区</p>
+<p>文件系统为了方便组织与管理，会将磁盘分为若干层次：</p>
+<ul>
+<li>扇区：磁盘上最小数据单元</li>
+<li>簇：一个或多个扇区，是数据存储的基本单位</li>
+<li>分区：不同功能区</li>
+</ul>
+<p>上述<code>2880</code>扇区被分为如下<code>5</code>个不同的分区</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/25/uIOohpD6ql3jPUg.png" alt="FAT12.png"></p>
+<p>由于根目录分区的大小不确定，数据区大小也不能够加以确定。</p>
+<h3 id="MBR区"><a href="#MBR区" class="headerlink" title="MBR区"></a>MBR区</h3><p>引导扇区，占用一个扇区大小空间。</p>
+<p>先前的学习中，我们了解到上电后Bios自检，会检测第<code>0</code>磁头、第<code>0</code>磁道、第<code>1</code>扇区是否以<code>0x55</code>和<code>0xaa</code>作结，以此判断该扇区是否为引导扇区。</p>
+<p>从第<code>11</code>个字节开始的<code>25</code>个字节构成一个较为特殊的结构<code>BPB(Bios Parameter Block)</code></p>
+<p>用一个结构体描述<code>BPB</code>的结构就可以表示为：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">BPB</span> &#123;</span><br><span class="line">    u16  BPB_BytsPerSec;	<span class="comment">//每扇区字节数</span></span><br><span class="line">    u8   BPB_SecPerClus;	<span class="comment">//每簇扇区数</span></span><br><span class="line">    u16  BPB_RsvdSecCnt;	<span class="comment">//Boot记录占用的扇区数</span></span><br><span class="line">    u8   BPB_NumFATs;	        <span class="comment">//FAT表个数</span></span><br><span class="line">    u16  BPB_RootEntCnt;	<span class="comment">//根目录最大文件数</span></span><br><span class="line">    u16  BPB_TotSec16;		<span class="comment">//扇区总数</span></span><br><span class="line">    u8   BPB_Media;             <span class="comment">//介质描述符</span></span><br><span class="line">    u16  BPB_FATSz16;	        <span class="comment">//每个FAT表所占扇区数</span></span><br><span class="line">    u16  BPB_SecPerTrk;         <span class="comment">//每磁道扇区数（Sector/track）</span></span><br><span class="line">    u16  BPB_NumHeads;	        <span class="comment">//磁头数（面数）</span></span><br><span class="line">    u32  BPB_HiddSec;	        <span class="comment">//隐藏扇区数</span></span><br><span class="line">    u32  BPB_TotSec32;	        <span class="comment">//如果BPB_ToSec16为0，该值为扇区数</span></span><br><span class="line">&#125; BPB;                          <span class="comment">//25字节</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出<code>BPB</code>对于接下来许多操作都具有决定性作用，比如：</p>
+<p><code>BPB_BytsPerSec * BPB_SecPerClus</code>，这就是一个簇的字节大小</p>
+<p><code>BPB_RsvdSecCnt + BPB_FATSz16 * BPB_NumFATs</code>，这就是MBR区以及FAT表区所占扇区数，所对应扇区也是根目录区开始扇区号</p>
+<p>查看以下<code>1.44MB</code>的<code>a.img</code>的第一个扇区<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/25/AiuM5L3hnzdpbWY.png" alt="BPB.png"></p>
+<ul>
+<li>扇区以<code>0x55</code> <code>0xAA</code>结尾</li>
+<li>扇区第<code>11</code>到<code>35</code>字节为<code>00 02 01 01 00 02 E0 00 40 0B F0 09 00 12 00 02 00 00 00 00 00 00 00 00 00</code></li>
+</ul>
+<p>对应于<code>BPB</code>即有</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">BPB</span> &#123;</span><br><span class="line">    u16  BPB_BytsPerSec = <span class="number">0x0200</span> = <span class="number">512</span>; <span class="comment">//每扇区字节数512</span></span><br><span class="line">    u8   BPB_SecPerClus = <span class="number">0x01</span> = <span class="number">1</span>;     <span class="comment">//每簇扇区数1</span></span><br><span class="line">    u16  BPB_RsvdSecCnt = <span class="number">0x0001</span> = <span class="number">1</span>;   <span class="comment">//Boot记录占用的扇区数1</span></span><br><span class="line">    u8   BPB_NumFATs = <span class="number">0x02</span> = <span class="number">2</span>;        <span class="comment">//FAT表个数2</span></span><br><span class="line">    u16  BPB_RootEntCnt = <span class="number">0x00E0</span> = <span class="number">224</span>; <span class="comment">//根目录最大文件数224</span></span><br><span class="line">    u16  BPB_TotSec16 = <span class="number">0x0B40</span> = <span class="number">2880</span>;  <span class="comment">//扇区总数2880</span></span><br><span class="line">    u8   BPB_Media = <span class="number">0XF0</span>;              <span class="comment">//介质描述符</span></span><br><span class="line">    u16  BPB_FATSz16 = <span class="number">0x0009</span> = <span class="number">9</span>;      <span class="comment">//每个FAT表所占扇区数9</span></span><br><span class="line">    u16  BPB_SecPerTrk = <span class="number">0x0012</span> = <span class="number">18</span>;   <span class="comment">//每磁道扇区数（Sector/track）18</span></span><br><span class="line">    u16  BPB_NumHeads = <span class="number">0x0002</span> = <span class="number">2</span>;     <span class="comment">//磁头数（面数）2</span></span><br><span class="line">    u32  BPB_HiddSec = <span class="number">0x00000000</span> = <span class="number">0</span>;  <span class="comment">//隐藏扇区数0</span></span><br><span class="line">    u32  BPB_TotSec32 = <span class="number">0x00000000</span> = <span class="number">0</span>; <span class="comment">//如果BPB_ToSec16为0，该值为扇区数</span></span><br><span class="line">&#125; BPB;</span><br></pre></td></tr></table></figure>
+
+<p>符合先前</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">标准以FAT12组织的软盘包括以下设定：</span><br><span class="line"></span><br><span class="line">- 两磁头</span><br><span class="line">- 每磁头80个磁道（2880 / 2 / 18）</span><br><span class="line">- 每磁道18扇区</span><br><span class="line">- 每扇区512字节</span><br></pre></td></tr></table></figure>
+<p>同时扇区划分，扇区总数，每个簇所对应扇区数，FAT表个数以及每个FAT表所占扇区数等数据均吻合。</p>
+<h3 id="FAT表"><a href="#FAT表" class="headerlink" title="FAT表"></a>FAT表</h3><p><code>FAT1</code>与<code>FAT2</code>互为备份，所以理论上两张表是一样的。</p>
+<p>FAT表被划分为紧密排列的若干表项，每个表项与数据区中一个簇对应，表项序号同时与簇号一一对应。</p>
+<p><code>FAT12</code>每个表项由<code>12</code>位组成，故先前说其是<code>12</code>位地址，最大容量为<code>16MB</code>。</p>
+<p>需要注意的是，由于<code>1.44MB</code>的软盘上<code>FAT12</code>前三个字节为固定的<code>0xF0</code>、<code>0xFF</code>、<code>0xFF</code>，用于表示这是一个<code>FAT12</code>文件系统，所以<code>3</code>字节，<code>24</code>位，<code>2</code>表项被占据，对应的<code>簇0</code> <code>簇1</code>就没有存在意义，故数据区起始不是<code>簇0</code>，而是<code>簇2</code>。</p>
+<p>FAT表项的值的含义：</p>
+<ul>
+<li>通常情况下代表文件下一簇号</li>
+<li>值<code>&gt;= 0xFF8</code>，该簇已经是文件最后一个簇</li>
+<li>值<code>= 0xFF7</code>，表示一个坏簇</li>
+</ul>
+<h3 id="根目录区"><a href="#根目录区" class="headerlink" title="根目录区"></a>根目录区</h3><p>根目录区由根目录下的目录项&#x2F;文件构成，一个目录项占据<code>32</code>字节</p>
+<p>类似的，每个目录项都有固定的结构，可用如下结构体进行模拟：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="title class_">RootEntry</span> &#123;</span><br><span class="line">    <span class="type">char</span> DIR_Name[<span class="number">11</span>];      <span class="comment">//长度名+扩展名</span></span><br><span class="line">    u8   DIR_Attr;          <span class="comment">//文件属性</span></span><br><span class="line">    <span class="type">char</span> reserved[<span class="number">10</span>];      <span class="comment">//保留位</span></span><br><span class="line">    u16  DIR_WrtTime;       <span class="comment">//最后一次写入时间</span></span><br><span class="line">    u16  DIR_WrtDate;       <span class="comment">//最后一次写入日期</span></span><br><span class="line">    u16  DIR_FstClus;	    <span class="comment">//开始簇号</span></span><br><span class="line">    u32  DIR_FileSize;      <span class="comment">//文件大小</span></span><br><span class="line">&#125; RootEntry;                <span class="comment">//32字节</span></span><br></pre></td></tr></table></figure>
+
+<p>通过查询根目录区即可得到文件&#x2F;目录开始簇号，也就可以去相应簇号读取。那么引入FAT表进行定位意义何在？<strong>大文件！</strong><br>上述方式只适用于文件大小小于一个簇的，鉴于文件的零散分布，就需要FAT表指示文件的下一部分所在簇号，方便加以定位，将散乱的文件整合起来。</p>
+<p>由此，归结起来，FAT12访问文件的基本操作为：<br>首先通过根目录文件查找文件名，确定是哪一个条目，接着在条目中访问DIR_FstClus</p>
+<ol>
+<li>首先通过根目录文件查找文件名，确定是哪一个条目，接着在条目中访问DIR_FstClus对应的开始簇号</li>
+<li>当一个簇号访问完后，通过FAT表项查询下一簇号，决定是结束还是继续访问下一簇号，重复第二条</li>
+</ol>
+<p>由上面区域划分可知，根目录区始于<code>19扇区</code>,即<code>19 * 512 = 2600h</code></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">FreChen026</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/">http://example.com/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">FreChen026</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F/">文件系统</a><a class="post-meta__tags" href="/tags/OS/">OS</a></div><div class="post_share"><div class="social-share" data-image="https://s2.loli.net/2023/04/25/ZNTjfJuSEiIO3bg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/04/21/%E6%95%B0%E6%8D%AE%E5%BA%932/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/21/2wzCD9rZWv1t7Rk.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库(中)</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/04/15/%E6%B1%87%E7%BC%96/" title="汇编"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/15/2jRCgfFLl7J86od.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-15</div><div class="title">汇编</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/03/10/yFU1XmJBxQcCoz6.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">FreChen026</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">17</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/FreChen026"><i class="fab fa-github"></i><span>认识我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的Hexo博客，用于记录一些学习和生活方面的内容，欢迎交流！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FAT12%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text">FAT12文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#FAT"><span class="toc-number">2.1.</span> <span class="toc-text">FAT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FAT12"><span class="toc-number">2.2.</span> <span class="toc-text">FAT12</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MBR%E5%8C%BA"><span class="toc-number">2.2.1.</span> <span class="toc-text">MBR区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FAT%E8%A1%A8"><span class="toc-number">2.2.2.</span> <span class="toc-text">FAT表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%8C%BA"><span class="toc-number">2.2.3.</span> <span class="toc-text">根目录区</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/" title="FAT12镜像查看"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/25/ZNTjfJuSEiIO3bg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FAT12镜像查看"/></a><div class="content"><a class="title" href="/2023/04/25/FAT12%E9%95%9C%E5%83%8F%E6%9F%A5%E7%9C%8B/" title="FAT12镜像查看">FAT12镜像查看</a><time datetime="2023-04-25T15:38:15.000Z" title="发表于 2023-04-25 23:38:15">2023-04-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/21/%E6%95%B0%E6%8D%AE%E5%BA%932/" title="数据库(中)"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/21/2wzCD9rZWv1t7Rk.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库(中)"/></a><div class="content"><a class="title" href="/2023/04/21/%E6%95%B0%E6%8D%AE%E5%BA%932/" title="数据库(中)">数据库(中)</a><time datetime="2023-04-21T15:38:00.000Z" title="发表于 2023-04-21 23:38:00">2023-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/15/%E6%B1%87%E7%BC%96/" title="汇编"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/15/2jRCgfFLl7J86od.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="汇编"/></a><div class="content"><a class="title" href="/2023/04/15/%E6%B1%87%E7%BC%96/" title="汇编">汇编</a><time datetime="2023-04-15T09:57:42.000Z" title="发表于 2023-04-15 17:57:42">2023-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/04/15/%E9%BB%91%E8%8D%89%E8%AE%B0%E5%BF%86/" title="黑草记忆"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/04/15/lfYmHCW27AM4Uoy.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="黑草记忆"/></a><div class="content"><a class="title" href="/2023/04/15/%E9%BB%91%E8%8D%89%E8%AE%B0%E5%BF%86/" title="黑草记忆">黑草记忆</a><time datetime="2023-04-15T08:40:12.000Z" title="发表于 2023-04-15 16:40:12">2023-04-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/03/24/Bochs%E5%AE%89%E8%A3%85/" title="Bochs安装"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://s2.loli.net/2023/03/24/LJk7PeB9Yc3ZmQW.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Bochs安装"/></a><div class="content"><a class="title" href="/2023/03/24/Bochs%E5%AE%89%E8%A3%85/" title="Bochs安装">Bochs安装</a><time datetime="2023-03-24T13:38:25.000Z" title="发表于 2023-03-24 21:38:25">2023-03-24</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By FreChen026</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
