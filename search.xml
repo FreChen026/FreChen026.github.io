@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>两年前埋下的隐患</title>
+      <link href="/2023/05/28/%E4%B8%A4%E5%B9%B4%E5%89%8D%E5%9F%8B%E4%B8%8B%E7%9A%84%E9%9A%90%E6%82%A3/"/>
+      <url>/2023/05/28/%E4%B8%A4%E5%B9%B4%E5%89%8D%E5%9F%8B%E4%B8%8B%E7%9A%84%E9%9A%90%E6%82%A3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>可以说纯属是巧合，由于软工二大作业一鸽再鸽，课上虽有演示作业相关操作和使用的技术，但我也迟迟未亲自动手实践。如今任务布置下来了，也只能硬着头皮看一看了。由于要使用新的数据库管理工具<code>PostgreSQL</code>（数据管理课上学的<code>MySQL</code>，课后我感觉<code>MySQL</code>不是很好用，就用<code>MariaDB</code>代替了，这波属于是教学与实践背道而驰了）</p><p>下载下来<code>Windows</code>下的安装包后，原本以为双击安装即可，没想到这玩意居然给我报错了，报错如下图所示。<br><img src="https://s2.loli.net/2023/05/28/Y5ltdCVaNFZzxUA.png" alt="pathproblem.png"><br>What?平时我安装软件也没出过问题，<code>MySQL</code>数据库的安装也未出现过这样的报错，真是奇怪。</p><p>其实也不难读懂意思，说我环境变量<code>COMSPEC</code>没有指向<code>cmd.exe</code>命令。</p><p>查看系统环境变量，果然，<code>ComSpec</code>变量的<code>value</code>确实不是<code>cmd.exe</code></p><p><img src="https://s2.loli.net/2023/05/28/rL4w5gKxDtRPs2f.png" alt="oldpath.png"><br>居然会是<code>mingw64</code>？！看来是大一配C语言环境时配炸的。修改为<code>C:\Windows\System32\cmd.exe</code>，重新尝试安装，成功！</p><h1 id="意外收获"><a href="#意外收获" class="headerlink" title="意外收获"></a>意外收获</h1><p>修改好环境变量并安装成功后，我打开我的<code>vscode</code>准备记录这次的心得，看了看原来写的<code>markdown</code>文章，使用<code>Markdown Preview Enhanced</code>插件查看，结果顺手点了个链接，原来并不会启动浏览器进行跳转，我曾一度认为就是如此，可这次居然显示<code>Windows 命令处理程序正在打开浏览器</code>，随即进行了链接的跳转。控制变量，将<code>ComSpec</code>变量改回原来的值，链接跳转无效，变量控制成功。</p><h1 id="扩展-待写"><a href="#扩展-待写" class="headerlink" title="扩展(待写)"></a>扩展(待写)</h1><p>最近本来就对<code>shell</code>、终端这些有所狩猎，刚好一个问题就摆在面前，一是<code>windows</code>下各环境变量的理解，二是相关程序通过<code>shell</code>对于内核的调用，三是程序运行的内在逻辑的不同，这些都是值得去了解的地方。</p><h1 id="感悟"><a href="#感悟" class="headerlink" title="感悟"></a>感悟</h1><p>初入计算机专业的门槛时便发觉困难，如今回头去看，当年因为经验不够或者技术力不足留下的种种问题仍然会对我产生困扰。不过站在现在的角度，又会感觉许多问题可笑且幼稚，好多所谓的大佬不过是比你先行一步，脚踏实地走自己的路才是正解。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Shell</title>
       <link href="/2023/05/24/Shell/"/>
       <url>/2023/05/24/Shell/</url>
